@@ -17,4 +17,27 @@ Although training takes longer, high-resolution model training markedly enhances
 #### Hypothesis 3: 
 It's both possible and beneficial to strike a balance between shorter data collection durations and maintaining high-quality image reconstruction.
 
+This study explores spatially sparse sampling, an undersampling technique in imaging that targets specific regions for measurement to enhance efficiency and reduce data volume, which can accelerate the acquisition process and make DOT systems more portable. Additionally, the research investigates the impact of using either amplitude or phase measurements alone on the quality of image reconstruction, aiming to understand their individual contributions to capturing optical properties. Finally, the experiment assesses the effects of reduced input measurements on the reconstruction of images at smaller output resolutions, exploring the balance between data collection efficiency and image quality.
+
+## Model: FDNet
+### Model Selection:
+This model modifies the architectures developed by Yoo et al. and Deng et al. (FDU-Net), particularly by omitting the U-Net component while retaining the fully connected and encoder-decoder sections, resulting in sharper image reconstructions. The aim isn't to compare different models but to evaluate the effect of undersampling on image reconstruction quality.
+
+### Model Description:
+
+#### Loss Function: 
+A weighted loss function is employed, focusing on regions of interest (ROIs) to better capture minor perturbations, enhancing the detection of small contrasts within the images.
+#### Fully Connected Layers: 
+The model uses two fully connected layers with a dropout rate of 0.2 to approximate the inversion operator, transforming measurement values into spatial layouts of absorbers.
+#### Convolutional Encoder-Decoder: 
+This part detects inclusion attributes via a 3D convolutional network with padding, employing 64 filters initially, followed by max-pooling and transpose convolution operations for accurate depth and spatial dimension mapping.
+#### Optimizer:
+Adamax was chosen for its robustness against large gradient updates, showing good generalization to new datasets while performing comparably to RMSprop and Adam in terms of training stability and time.
+
+
+
+
+
+
+
 
