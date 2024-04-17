@@ -63,15 +63,25 @@ The time taken for training was 5 to 10 hours, varying by input and output resol
 Training with z-score standardization on datasets of log-transformed amplitude and phase measurements showed superior results compared to min-max standardization, establishing it as the standard method for all subsampling strategies in this study. The models were trained across various configurations with consistent preprocessing steps:
 
 **Model 1:** Input size 288, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+
 **Model 2:** Input size 288, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+
 **Model 3:** Input size 288, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+
 **Model 4:** Input size 1152, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+
 **Model 5:** Input size 1152, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+
 **Model 6:** Input size 1152, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+
 **Model 7:** Input size 576, Amp, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+
 **Model 8:** Input size 576, Amp, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+
 **Model 9:** Input size 576, Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+
 **Model 10:** Input size 576, Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+
 Models targeting higher output resolutions displayed better performance, attributed to the increased ability to capture finer details, leading to a focus on the 32x32x16 resolution for further discussions on the effects of using amplitude-only, phase-only data, and undersampling strategies.
 
 
