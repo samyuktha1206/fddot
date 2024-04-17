@@ -28,9 +28,20 @@ This model modifies the architectures developed by Yoo et al. and Deng et al. (F
 #### Loss Function: 
 A weighted loss function is employed, focusing on regions of interest (ROIs) to better capture minor perturbations, enhancing the detection of small contrasts within the images.
 #### Fully Connected Layers: 
-The model uses two fully connected layers with a dropout rate of 0.2 to approximate the inversion operator, transforming measurement values into spatial layouts of absorbers.
+The model uses two fully connected layers and they include an input layer and an intermediary hidden layer, both utilizing a hyperbolic tangent (tanh) activation function. A dropout rate of 0.2 is applied to reduce overfitting. The output of these layers is reshaped to match the dimensions of the simulated target data, preparing it for further convolutional processing.
 #### Convolutional Encoder-Decoder: 
-This part detects inclusion attributes via a 3D convolutional network with padding, employing 64 filters initially, followed by max-pooling and transpose convolution operations for accurate depth and spatial dimension mapping.
+##### Initial Processing: 
+The reshaped output from fully connected layers enters the convolutional encoder-decoder network, which uses padding to preserve spatial dimensions from input to output.
+##### Convolutional Layers: 
+Begins with three convolutional layers, each equipped with 64 filters of size 5x5x5, applying a stride of 1. A ReLU activation function is used to ensure outputs remain non-negative, representing optical properties accurately.
+##### Max-Pooling Operation: 
+A 2x2x2 max-pooling step follows the first convolutional layer, halving the data size in each dimension, which acts as an effective downsampling method to concentrate the features.
+##### Transpose Convolution: 
+After the second convolution layer, a transpose convolution with a 2x2x2 kernel and a stride of 2 is employed to up-sample the spatial dimensions, countering the earlier downsampling effect.
+##### Final Layer Configuration: 
+The network concludes with a layer utilizing 2 filters of size 1x1x1 to adjust the depth of the feature map to align with the target data dimensions, without altering the spatial size.
+##### Detailed 3D Volume Reconstruction: 
+This setup ensures a precise mapping from the high-dimensional feature space back to the spatial domain, which is crucial for accurately reconstructing and interpreting the detailed 3D volume reflective of the analyzed attributes.
 #### Optimizer:
 Adamax was chosen for its robustness against large gradient updates, showing good generalization to new datasets while performing comparably to RMSprop and Adam in terms of training stability and time.
 
