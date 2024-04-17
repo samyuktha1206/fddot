@@ -45,6 +45,35 @@ This setup ensures a precise mapping from the high-dimensional feature space bac
 #### Optimizer:
 Adamax was chosen for its robustness against large gradient updates, showing good generalization to new datasets while performing comparably to RMSprop and Adam in terms of training stability and time.
 
+### Training
+The model used 9,000 training examples and 1,000 for validation, with training capped at 1,000 epochs, batch size of 64, and early stopping triggered if validation loss didn't improve for 60 epochs. Early stopping, which also saves the best model version, prevents overfitting and conserves computational resources. The fully connected layer employs a 0.2 dropout rate, deactivating 20% of neurons to promote a more distributed learning and robustness, with a learning rate of 0.001. 
+Computationally, the system relied on the NVIDIA Tesla P100 used in Kaggle Kernels with
+the following specifications:
+CUDA Cores: 3,584
+Base Clock: Approximately 1.3 GHz
+Memory: 16 GB
+Memory Bandwidth: Up to 732 GB/s
+Compute Capability: 6.0
+FP32 (Single Precision) Performance: Up to 9.3 TFLOPs
+FP64 (Double Precision) Performance: Up to 4.7 TFLOPs
+NVLink: Supports NVIDIA's NVLink
+The time taken for training was 5 to 10 hours, varying by input and output resolution. Future training on V100 or A100 GPUs could reduce time significantly. 3D results visualization utilized Plotly's graphic_objects module.
+
+### Observations
+Training with z-score standardization on datasets of log-transformed amplitude and phase measurements showed superior results compared to min-max standardization, establishing it as the standard method for all subsampling strategies in this study. The models were trained across various configurations with consistent preprocessing steps:
+
+Model 1: Input size 288, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+Model 2: Input size 288, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+Model 3: Input size 288, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+Model 4: Input size 1152, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+Model 5: Input size 1152, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+Model 6: Input size 1152, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+Model 7: Input size 576, Amp, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+Model 8: Input size 576, Amp, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+Model 9: Input size 576, Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+Model 10: Input size 576, Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+Models targeting higher output resolutions displayed better performance, attributed to the increased ability to capture finer details, leading to a focus on the 32x32x16 resolution for further discussions on the effects of using amplitude-only, phase-only data, and undersampling strategies.
+
 
 
 
