@@ -84,6 +84,17 @@ Training with z-score standardization on datasets of log-transformed amplitude a
 
 Models targeting higher output resolutions displayed better performance, attributed to the increased ability to capture finer details, leading to a focus on the 32x32x16 resolution for further discussions on the effects of using amplitude-only, phase-only data, and undersampling strategies.
 
+### Model Evaluation
+The performance metrics adapted from White & Culver 2010 and Doulgerakis 2019 for evaluating the reconstructions include:
+
+**Localisation Error (LOCA):** Measures the linear distance between the centroids of predicted and actual lesions, assessing the spatial accuracy of lesion detection.
+
+**Full Width at Half Maximum (FWHM):** Indicates the spatial dispersion of the lesion's reconstruction by measuring the maximum distance between points at half of the reconstruction's peak value, providing insight into the spatial resolution.
+
+**Effective Resolution (ERES):** Calculates twice the maximum distance between the ground truth centroid and any point within the predicted ROI at or above half of the peak intensity, evaluating the spatial distribution of the predicted lesion.
+
+**Structural Similarity Index (SSIM):** Assesses similarity between two images in terms of luminance, contrast, and structure, where a high SSIM score indicates similar brightness, contrast, and structural information between the compared images.
+
 
 
 
