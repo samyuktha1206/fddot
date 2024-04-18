@@ -62,25 +62,25 @@ The time taken for training was 5 to 10 hours, varying by input and output resol
 ### Observations
 Training with z-score standardization on datasets of log-transformed amplitude and phase measurements showed superior results compared to min-max standardization, establishing it as the standard method for all subsampling strategies in this study. The models were trained across various configurations with consistent preprocessing steps:
 
-**Model 1:** Input size 288, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+[Model 1: Input size 288, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-288-32x32x16.ipynb)
 
-**Model 2:** Input size 288, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+[Model 2: Input size 288, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-288-16x16x8.ipynb)
 
-**Model 3:** Input size 288, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+[Model 3: Input size 288, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-288-8x8x4.ipynb)
 
-**Model 4:** Input size 1152, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+[Model 4: Input size 1152, Amp+Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-1152-32x32x16.ipynb)
 
-**Model 5:** Input size 1152, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+[Model 5: Input size 1152, Amp+Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-1152-16x16x8.ipynb)
 
-**Model 6:** Input size 1152, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.
+[Model 6: Input size 1152, Amp+Phase, Output 8x8x4, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-1152-8x8x4.ipynb)
 
-**Model 7:** Input size 576, Amp, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+[Model 7: Input size 576, Amp, Output 32x32x16, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-amp-576-32x32x16%20(1).ipynb)
 
-**Model 8:** Input size 576, Amp, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+[Model 8: Input size 576, Amp, Output 16x16x8, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-amp-576-16x16x8%20(1).ipynb)
 
-**Model 9:** Input size 576, Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.
+[Model 9: Input size 576, Phase, Output 32x32x16, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-ph-576-32x32x16.ipynb)
 
-**Model 10:** Input size 576, Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.
+[Model 10: Input size 576, Phase, Output 16x16x8, on NVIDIA Tesla P100 16GB.](https://github.com/samyuktha1206/fddot/blob/main/fdnet-phase-576-16x16x8%20(1).ipynb)
 
 Models targeting higher output resolutions displayed better performance, attributed to the increased ability to capture finer details, leading to a focus on the 32x32x16 resolution for further discussions on the effects of using amplitude-only, phase-only data, and undersampling strategies.
 
