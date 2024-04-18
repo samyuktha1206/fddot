@@ -159,6 +159,17 @@ Interestingly moreover, while the model may not precisely represent the dimensio
 
 **576 (Ph):** Phase-only data also presents SSIM scores around 80%, with scattering (µ𝑠) slightly outperforming absorption (µ𝑎) at 82% versus 80%, reflecting a similar trend to amplitude-only outcomes but with nuanced differences in quality between properties.
 
+### Conclusion
+**Trade-off Between 288 and 1152 Datasets:** The 288 dataset emerges as a robust alternative for image reconstruction, matching the 1152 dataset in FWHM ratios and SSIM values (~90%), while significantly cutting data collection time. This efficiency doesn’t compromise the reconstructed image quality, affirming it as a strategic choice for reducing resource use without sacrificing fidelity.
+
+**Amplitude and Phase Dependency:** Reconstructions using solely amplitude or phase data fall short, evidenced by erratic FWHM ratios and elevated localization errors. The drop in SSIM values to about 80% from 90% underscores the necessity of integrating both data types for enhanced reconstruction accuracy, advocating for a synergistic approach.
+
+**Optical Properties Relationship:** Disparities in representing absorption and scattering coefficients with amplitude-only or phase-only data underscore a nuanced interaction between these properties and the data types. This delineation hints at amplitude’s affinity for scattering properties and phase’s for absorption, though neither alone suffices for a comprehensive depiction, signaling the intertwined nature of these elements.
+
+**Higher Resolution Training Justification:** Investing in higher resolution training, specifically 32x32x16, is validated by the superior quality of reconstructions, marked by consistently high SSIM values and minimized localization errors. Despite the higher computational demand, the noticeable improvement in image quality justifies the resource expenditure.
+
+In essence, leveraging a reduced dataset of 288 inputs approximates the performance of a more extensive 1152 dataset, emphasizing the importance of a combined amplitude and phase data approach. This balance between computational efficiency and image quality, alongside the differentiated roles of amplitude and phase data in capturing optical properties, advocates for a nuanced, resource-aware strategy in image reconstruction efforts.
+
 
 
 
