@@ -111,6 +111,55 @@ In **phase-only reconstruction**, 576 phase data points are utilized to identify
 
 ![image resconstructed using only phase values](https://github.com/samyuktha1206/fddot/blob/main/images/32_32_16_Phase.png)
 
+#### Observing Full Width at Half Max
+
+![FWHM values for the 4 types of reconstructions performed](https://github.com/samyuktha1206/fddot/blob/main/images/FWHM.png)
+
+**FWHM Ratio Analysis for Lesion Reconstruction:** The ratio of Full Width at Half Maximum (FWHM) between predicted and ground truth lesions across x, y, and z axes aids in comparing reconstruction accuracy. A ratio of 1 indicates high accuracy, >1 suggests overestimation or blurring, and <1 indicates underestimation or sharper reconstruction than actual.
+
+**Variability in Reconstruction Based on Data Type:** Reconstructions solely based on amplitude or phase data showed considerable variability, with some profiles not captured (indicated by zero values), highlighting the importance of both amplitude and phase data for accurate reconstruction.
+
+**Comparison Between 288 and 1152 Input Models:** Despite using a quarter of the inputs (288 vs. 1152), reconstructions were comparable in quality, suggesting efficiency in using a reduced dataset without significant loss in reconstruction accuracy.
+
+**Statistical Analysis with Mann-Whitney U Test:** A Mann-Whitney U test found no significant statistical difference between the reconstruction qualities of undersampled (288 inputs) and full dataset (1152 inputs) models, indicating that reduced datasets can achieve similar quality, potentially offering greater efficiency and less resource consumption.
+
+#### Observing Effective Resolution
+
+![ER values for the 4 types of reconstructions performed](https://github.com/samyuktha1206/fddot/blob/main/images/ER.png)
+
+**Efficiency of 288 (Amp + Ph) Inputs:** Using 288 combined amplitude and phase inputs results in smaller effective resolutions, indicating generally better reconstruction quality and highlighting data collection efficiency.
+
+**Comparative Performance of 1152 (Amp + Ph) Inputs:** Despite a higher data volume, the 1152 set shows mixed results without clear advantages over the 288 set, questioning the necessity of increased data points.
+
+**Impact of Data Type on µ𝑎 and µ𝑠 Reconstruction:** Amplitude-only data (576 Amp) leads to poor image quality for both absorption (µ𝑎) and scattering (µ𝑠) coefficients, with µ𝑠 slightly better reconstructed than µ𝑎. Phase-only data (576 Ph) offers some improvement for µ𝑎 reconstructions over amplitude-only but remains ineffective, especially for µ𝑠, indicating very poor reconstruction quality.
+
+**Data Type Specificity to Optical Properties:** The quality of reconstructions varies significantly with the type of data used, underscoring the importance of selecting appropriate data types (amplitude or phase) for accurate imaging of different optical properties.
+
+#### Observing Localization Errors
+![LE values for the 4 types of reconstructions performed](https://github.com/samyuktha1206/fddot/blob/main/images/LE.png)
+
+**288 (Amp + Ph) Configuration:** Shows balanced performance with relatively low errors in localizing lesions for both absorption (µ𝑎) and scattering (µ𝑠) coefficients, indicating a good compromise between the quantity of input data and the quality of output.
+
+**1152 (Amp + Ph) Set:** Exhibits lower localization errors for one lesion but higher for another, especially for scattering (µ𝑠), challenging the expectation that more data automatically translates to better performance.
+
+**576 (Amp) Cases:** Demonstrates higher localization errors, with amplitude data slightly outperforming phase in identifying lesions based on both absorption (µ𝑎) and scattering (µ𝑠), though still not ideal.
+
+**576 (Ph) Cases:** Phase data leads to lower but inconsistent localization errors for absorption (µ𝑎) and extremely high errors for scattering (µ𝑠), underperforming compared to amplitude data in pinpointing lesion locations. 
+
+Interestingly moreover, while the model may not precisely represent the dimensions of the lesions, such as radius and diameter, in the context of lower resolutions, it does effectively pinpoint their locations. 
+
+#### Observing Structural Similarity Index Measures
+
+![SSIM values for the 4 types of reconstruction performed](https://github.com/samyuktha1206/fddot/blob/main/images/SSIM.png)
+
+
+**288 vs 1152 (Amp + Ph):** Both configurations show high SSIM scores (88-90%) for both absorption (µ𝑎) and scattering (µ𝑠), with the 288 set marginally surpassing the 1152 set, indicating reduced data can still maintain or enhance quality.
+
+**576 (Amp):** SSIM scores hover around 80% for both µ𝑎 and µ𝑠, showing that amplitude data alone leads to decent, though slightly inferior, reconstructions compared to combined data.
+
+**576 (Ph):** Phase-only data also presents SSIM scores around 80%, with scattering (µ𝑠) slightly outperforming absorption (µ𝑎) at 82% versus 80%, reflecting a similar trend to amplitude-only outcomes but with nuanced differences in quality between properties.
+
+
 
 
 
