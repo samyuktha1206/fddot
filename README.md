@@ -95,9 +95,23 @@ The performance metrics adapted from White & Culver 2010 and Doulgerakis 2019 fo
 
 **Structural Similarity Index (SSIM):** Assesses similarity between two images in terms of luminance, contrast, and structure, where a high SSIM score indicates similar brightness, contrast, and structural information between the compared images.
 
-**Full resolution:** The model was trained for full-resolution image reconstruction on a dataset of 1,152 points, including equal parts amplitude and phase measurements, targeting a resolution of 32x32x16 for both µₐ and µₛ. Testing with a new set of 1,152 amplitude and phase measurements, it achieved successful reconstruction at the desired resolution.
+The model was first trained for **full-resolution image reconstruction** on a dataset of 1,152 points, including equal parts amplitude and phase measurements, targeting a resolution of 32x32x16 for both µₐ and µₛ. Testing with a new set of 1,152 amplitude and phase measurements, it achieved successful reconstruction at the desired resolution.
 
 ![an image of the full reconstruction](https://github.com/samyuktha1206/fddot/blob/main/images/32_32_16_1152.png)
+
+In the **sparsly undersampled reconstruction** method, a model uses just 288 input measurements—split evenly between 144 amplitude and 144 phase measurements—to achieve a detailed output resolution of 32x32x16. Despite the reduced input, this approach maintains high-quality reconstruction for both µ𝑎 and µ𝑠 with the full resolution, demonstrating the model's efficiency in utilizing limited data for comprehensive output.
+
+![reconstructed image of a sparsly undersampled data](https://github.com/samyuktha1206/fddot/blob/main/images/32_32_16_288.png)
+
+In **amplitude-only reconstruction**, the model uses 576 amplitude values from a total of 1152 measurements, ignoring phase values, to identify anomalies related to both µ𝑎 and µ𝑠 at a resolution of 32x32x16. When analyzing new data, it outputs two distinct 32x32x16 images, pinpointing anomalies for each parameter.
+
+![image reconstructed using only amplitude values](https://github.com/samyuktha1206/fddot/blob/main/images/32_32_16_576_Amp.png)
+
+In **phase-only reconstruction**, 576 phase data points are utilized to identify anomalies related to optical properties µ𝑎 and µ𝑠, with a model trained on these points to reconstruct anomalies at a 32x32x16 resolution.
+
+![image resconstructed using only phase values](https://github.com/samyuktha1206/fddot/blob/main/images/32_32_16_Phase.png)
+
+
 
 
 
